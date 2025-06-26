@@ -154,7 +154,7 @@ if leads_file :
                         break
 
 
-        st.write("Grupos, segundo condicional Prioridad leads")
+        st.write("Grupos, segundo condicional Leads secundarios")
         df_leads_order_2 = df_leads.sort_values(by='group', ascending=True)
         st.dataframe(df_leads_order_2)
 
