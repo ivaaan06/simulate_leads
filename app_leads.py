@@ -219,8 +219,6 @@ if leads_file :
         st.dataframe(df_leads)
 
 
-
-
         st.subheader("Asesores vs Leads")
         x = df_asesor['name_asesor'].values
         y = df_leads['id_advisor_assigned'].value_counts().reindex(df_asesor['id_asesor']).fillna(0).astype(int).values
@@ -273,7 +271,6 @@ if leads_file :
         plt.xlabel("Score del Lead")
         plt.ylabel("Grupo Asignado")
         plt.grid(True, axis='x', linestyle='--', alpha=0.5)
-        st.pyplot(plt)
         plt.xlabel("Score del Lead")
         plt.ylabel("Grupo Asignado")
         plt.grid(True, axis='x', linestyle='--', alpha=0.5)
