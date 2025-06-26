@@ -99,6 +99,16 @@ if leads_file :
                         break
 
 
+        st.info("""
+        **Flujo de validación de leads**:  \n
+        1️⃣ **Priorización**: Se asignan de acuerdo a prioridad de leads (score total).  \n  
+        2️⃣ **Leads secundarios**: Se realiza un nuevo cálculo de score total para los leads sin asignación \n  
+        3️⃣ **Asignación en cascada**:  \n    
+            - Si el Grupo A está lleno, se deriva al Grupo B.     
+            - Si el Grupo B está lleno, se deriva al Grupo C.     
+        4️⃣ **Asignación aleatoria**: Si ningún grupo tiene capacidad, se asigna aleatoriamente. \n  
+        """, icon="ℹ️")
+
         st.write("Grupos, primer condicional Prioridad leads")
         df_leads_order = df_leads.sort_values(by='group', ascending=True)
         st.dataframe(df_leads_order)
@@ -260,6 +270,10 @@ if leads_file :
             alpha=0.8
         )
         plt.title("Dispersión de Leads Asignados")
+        plt.xlabel("Score del Lead")
+        plt.ylabel("Grupo Asignado")
+        plt.grid(True, axis='x', linestyle='--', alpha=0.5)
+        st.pyplot(plt)
         plt.xlabel("Score del Lead")
         plt.ylabel("Grupo Asignado")
         plt.grid(True, axis='x', linestyle='--', alpha=0.5)
